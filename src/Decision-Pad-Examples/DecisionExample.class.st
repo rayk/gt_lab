@@ -10,7 +10,7 @@ DecisionExample >> creatingDecision [
 	
 	| decision |
 	
-	decision := Decision withIdentifier: 'nsjo-3837j-skfj3-23'.
+	decision := Decision withIdentifier: UUIDGenerator new next.
 	
 	^ decision
 ]
