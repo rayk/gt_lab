@@ -33,9 +33,23 @@ Class {
 	#category : #'Decision-Pad-Core'
 }
 
+{ #category : #comparing }
+Decision >> = anObject [
+
+	"Answer whether the receiver and anObject represent the same object in terms of values: ."
+
+	self == anObject ifTrue: [ ^ true ].
+	self class = anObject class ifFalse: [ ^ false ].
+	^ uid = anObject uid and: [ 
+		  owner = anObject owner and: [ 
+			  commenced = anObject commenced and: [ 
+				  decscription = anObject decscription and: [ 
+					  label = anObject label ] ] ] ]
+]
+
 { #category : #accessing }
 Decision >> commenced [
-
+	"Date time when this decision was startted to be considered."
 	^ commenced
 ]
 
@@ -47,7 +61,7 @@ Decision >> commenced: anObject [
 
 { #category : #accessing }
 Decision >> decscription [
-
+	"Short explaination of the purpose of this decision"
 	^ decscription
 ]
 
@@ -57,9 +71,18 @@ Decision >> decscription: anObject [
 	decscription := anObject
 ]
 
+{ #category : #comparing }
+Decision >> hash [
+
+	"Answer an integer value that is related to the identity of the receiver."
+
+	^ uid hash bitXor: (owner hash bitXor:
+			   (commenced hash bitXor: (decscription hash bitXor: label hash)))
+]
+
 { #category : #accessing }
 Decision >> label [
-
+	"A name or common way to refering to this decision."
 	^ label
 ]
 
@@ -71,7 +94,7 @@ Decision >> label: anObject [
 
 { #category : #accessing }
 Decision >> owner [
-
+	"The user that is responible for this decision."
 	^ owner
 ]
 
@@ -81,9 +104,32 @@ Decision >> owner: anObject [
 	owner := anObject
 ]
 
+{ #category : #printing }
+Decision >> printOn: aStream [
+
+	"Append a sequence of characters to aStream that identify the receiver."
+
+	super printOn: aStream.
+	aStream
+		nextPutAll: ' uid: ';
+		print: uid.
+	aStream
+		nextPutAll: ' owner: ';
+		print: owner.
+	aStream
+		nextPutAll: ' commenced: ';
+		print: commenced.
+	aStream
+		nextPutAll: ' decscription: ';
+		print: decscription.
+	aStream
+		nextPutAll: ' label: ';
+		print: label
+]
+
 { #category : #accessing }
 Decision >> uid [
-
+	"A unquie identifier for this decision."
 	^ uid
 ]
 
