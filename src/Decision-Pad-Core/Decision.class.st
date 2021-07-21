@@ -94,6 +94,40 @@ Decision >> initialize [
 ]
 
 { #category : #accessing }
+Decision >> inspection: aView [
+	<gtView>
+	^ aView explicit
+		title: 'Decision' translated;
+		priority: 5;
+		stencil:
+				[ | container verticalContainer detailsTextContainer avatarContainer nameTextContainer |
+			container := BlElement new
+				layout: BlLinearLayout horizontal;
+				background: Color lightGray;
+				aptitude: BrShadowAptitude;
+				margin: (BlInsets all: 20);
+				constraintsDo: [ :c | 
+					c horizontal fitContent.
+					c vertical fitContent
+					].
+			nameTextContainer := BlTextElement new
+				constraintsDo: [ :c | c horizontal matchParent ];
+				margin:
+					(BlInsets
+						top: 5
+						right: 5
+						bottom: 20
+						left: 5);
+				text:
+					(uid asRopedText glamorousRegularFont
+						fontSize: 14;
+						foreground: Color black).
+			container addChild: nameTextContainer.
+			container
+			].
+]
+
+{ #category : #accessing }
 Decision >> label [
 	"A name or common way to refering to this decision."
 	^ label

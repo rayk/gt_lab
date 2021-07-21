@@ -4,7 +4,7 @@ Class {
 	#category : #'Decision-Pad-Examples'
 }
 
-{ #category : #accessing }
+{ #category : #create }
 DecisionExample >> creatingDecision [
 	<gtExample>
 	
@@ -13,4 +13,11 @@ DecisionExample >> creatingDecision [
 	decision := Decision withIdentifier: UUIDGenerator new next.
 	
 	^ decision
+]
+
+{ #category : #create }
+DecisionExample >> emptyDecision [
+	<gtExample>
+	
+	^ Decision new.
 ]
