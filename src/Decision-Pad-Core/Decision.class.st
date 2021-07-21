@@ -91,12 +91,6 @@ Decision >> hash [
 
 { #category : #initialization }
 Decision >> initialize [
-
-	"comment stating purpose of instance-side method"
-
-	"scope: class-variables  &  instance-variables"
-
-	uid := 'someid'
 ]
 
 { #category : #accessing }
