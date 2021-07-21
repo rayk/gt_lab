@@ -80,6 +80,16 @@ Decision >> hash [
 			   (commenced hash bitXor: (decscription hash bitXor: label hash)))
 ]
 
+{ #category : #initialization }
+Decision >> initialize [
+
+	"comment stating purpose of instance-side method"
+
+	"scope: class-variables  &  instance-variables"
+
+	uid := 'someid'
+]
+
 { #category : #accessing }
 Decision >> label [
 	"A name or common way to refering to this decision."
