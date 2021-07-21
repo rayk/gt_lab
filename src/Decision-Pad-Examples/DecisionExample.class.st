@@ -1,3 +1,6 @@
+"
+Decision Object Example
+"
 Class {
 	#name : #DecisionExample,
 	#superclass : #Object,
