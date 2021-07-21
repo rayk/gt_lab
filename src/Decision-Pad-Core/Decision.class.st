@@ -33,6 +33,15 @@ Class {
 	#category : #'Decision-Pad-Core'
 }
 
+{ #category : #constructor }
+Decision class >> withIdentifier: aString [
+	"comment stating purpose of class-side method"
+	"scope: class-variables  &  class-instance-variables"	
+			
+	^ self new uid: aString;
+	yourself 
+]
+
 { #category : #comparing }
 Decision >> = anObject [
 
