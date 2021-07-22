@@ -8,6 +8,17 @@ Class {
 }
 
 { #category : #tests }
+WalletTest >> testAddOneCoin [	
+	"comment stating purpose of instance-side method"
+	"scope: class-variables  &  instance-variables"	
+			
+	| w |
+	w := Wallet new.
+	w addCoin: 0.50.
+	self assert: (w coinsOfValue: 0.50) equals: 1 
+]
+
+{ #category : #tests }
 WalletTest >> testBiggestCoin [
 
 	"comment stating purpose of instance-side method"
@@ -111,6 +122,26 @@ WalletTest >> testMoreMoney [
 
 	self assert: w money equals: 1.87.
 	self assert: w coinNumber equals: 11.
+]
+
+{ #category : #tests }
+WalletTest >> testRemoveCoin [
+
+	"comment stating purpose of instance-side method"
+
+	"scope: class-variables  &  instance-variables"
+
+	| w |
+	w := Wallet new.
+	w add: 2 coinsOfValue: 0.50.
+	w add: 3 coinsOfValue: 0.20.
+	w add: 1 coinsOfValue: 0.02.
+	w add: 5 coinsOfValue: 0.05.
+	self assert: w money equals: 1.87.
+
+	w removeCoin: 0.5.
+
+	self assert: w money equals: 1.37
 ]
 
 { #category : #tests }

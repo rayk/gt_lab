@@ -41,6 +41,14 @@ Wallet >> add: anIntegerCount coinsOfValue: aFloatValue [
 	bagCoins add: aFloatValue withOccurrences: anIntegerCount .
 ]
 
+{ #category : #adding }
+Wallet >> addCoin: aCoinValue [
+	"comment stating purpose of instance-side method"
+	"scope: class-variables  &  instance-variables"	
+			
+		bagCoins add: aCoinValue.
+]
+
 { #category : #accessing }
 Wallet >> biggest [
 	"comment stating purpose of instance-side method"
@@ -99,4 +107,26 @@ Wallet >> money [
 Wallet >> money: anObject [
 
 	money := anObject
+]
+
+{ #category : #printing }
+Wallet >> printOn: aStream [
+
+	"comment stating purpose of instance-side method"
+
+	"scope: class-variables  &  instance-variables"
+
+	super printOn: aStream.
+	aStream
+		nextPutAll: '(' ;
+		nextPutAll:  money asString;
+		nextPutAll: ')'
+]
+
+{ #category : #removing }
+Wallet >> removeCoin: aCoinValue [
+	"comment stating purpose of instance-side method"
+	"scope: class-variables  &  instance-variables"	
+			
+	bagCoins remove: aCoinValue .
 ]
