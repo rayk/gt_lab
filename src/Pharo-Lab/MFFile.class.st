@@ -1,6 +1,5 @@
 "
-Part of exploring pharo
-
+Repersents a file
 For the Class part:  State a one line summary. For example, ""I represent a paragraph of text"".
 
 For the Responsibility part: Three sentences about my main responsibilities - what I do, what I know.
@@ -17,71 +16,65 @@ Public API and Key Messages
  
 Internal Representation and Key Implementation Points.
 
+    Instance Variables
+	contents:		<Object>
+	name:		<Object>
+	parent:		<Object>
+
 
     Implementation Points
 "
 Class {
-	#name : #MFDirectory,
+	#name : #MFFile,
 	#superclass : #Object,
 	#instVars : [
-		'name',
 		'parent',
-		'files'
+		'name',
+		'contents'
 	],
 	#category : #'Pharo-Lab'
 }
 
-{ #category : #adding }
-MFDirectory >> addElement:  aFile [
-	"comment stating purpose of instance-side method"
-	"scope: class-variables  &  instance-variables"	
-			
-	aFile parent: self.
-	files add: aFile
+{ #category : #accessing }
+MFFile >> contents [
+
+	^ contents
 ]
 
 { #category : #accessing }
-MFDirectory >> children [
-	
-	^ files 
+MFFile >> contents: anObject [
+
+	contents := anObject
 ]
 
 { #category : #initialization }
-MFDirectory >> initialize [ 
+MFFile >> initialize [ 
 	"comment stating purpose of instance-side method"
 	"scope: class-variables  &  instance-variables"	
 			
-	files := OrderedCollection new
+	contents  := ''
 ]
 
 { #category : #accessing }
-MFDirectory >> name [
+MFFile >> name [
 
 	^ name
 ]
 
 { #category : #accessing }
-MFDirectory >> name: anObject [
+MFFile >> name: anObject [
 
 	name := anObject
 ]
 
 { #category : #accessing }
-MFDirectory >> parent [
+MFFile >> parent [
 
 	^ parent
 ]
 
 { #category : #accessing }
-MFDirectory >> parent: anObject [
+MFFile >> parent: anObject [
 
 	parent := anObject
-]
-
-{ #category : #printing }
-MFDirectory >> printOn: aStream [
-
-	parent ifNotNil: [ parent printOn: aStream ].
-	aStream << name.
-	aStream << '/'
 ]
