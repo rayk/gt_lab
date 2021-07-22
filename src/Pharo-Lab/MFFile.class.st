@@ -90,8 +90,8 @@ MFFile >> printOn: aStream [
 
 { #category : #'typing/selecting keys' }
 MFFile >> search: aString [
-	
-	^ '*', aString, '*' match: contents 
+
+	^ '*' , aString , '*' match: contents
 ]
 
 { #category : #accessing }

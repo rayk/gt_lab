@@ -89,7 +89,7 @@ MFDirectory >> printOn: aStream [
 { #category : #'typing/selecting keys' }
 MFDirectory >> search: aString [
 	
-	^  files select: [  :eachFile | eachFile serach: aString  ].
+	^  files select: [  :eachFile | eachFile search: aString  ].
 ]
 
 { #category : #accessing }
