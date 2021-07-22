@@ -58,3 +58,11 @@ TemperatureConverter >> measureCelsius: aTemp [
 TemperatureConverter >> measureCount [ 
 	^ measures count 
 ]
+
+{ #category : #accessing }
+TemperatureConverter >> temperatures [ 
+	"comment stating purpose of instance-side method"
+	"scope: class-variables  &  instance-variables"	
+			
+	^ measures collect: [ :each | each value ].
+]
