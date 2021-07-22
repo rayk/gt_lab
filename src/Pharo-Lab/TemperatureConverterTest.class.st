@@ -52,7 +52,7 @@ TemperatureConverterTest >> testLocationAndDate [
 	
 	self assert: office dates equals: { Date today . Date today } asOrderedCollection.
 	
-	self assert: office  temperatures equals:  { 19 . 21 }
+	self assert: office  temperatures equals:  { 19 . 21 } asOrderedCollection .
 	
 	
 ]

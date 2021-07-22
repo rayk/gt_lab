@@ -40,10 +40,28 @@ TemperatureConverter >> convertFahrenheit: lowInteger to: highInteger by: stepIn
 	
 ]
 
+{ #category : #accessing }
+TemperatureConverter >> date [
+	
+	^measures collect:  [ :each | each key asDate ]
+]
+
+{ #category : #accessing }
+TemperatureConverter >> dates [
+	
+	^measures collect:  [ :each | each key asDate ]
+]
+
 { #category : #initialization }
 TemperatureConverter >> initialize [ 
 	location  := 'Nice'.
 	measures  := OrderedCollection  new.
+]
+
+{ #category : #accessing }
+TemperatureConverter >> location: aString [
+
+	location := aString 
 ]
 
 { #category : #operations }
@@ -56,7 +74,7 @@ TemperatureConverter >> measureCelsius: aTemp [
 
 { #category : #'accessing - testing' }
 TemperatureConverter >> measureCount [ 
-	^ measures count 
+	^ measures size  
 ]
 
 { #category : #accessing }
@@ -65,4 +83,12 @@ TemperatureConverter >> temperatures [
 	"scope: class-variables  &  instance-variables"	
 			
 	^ measures collect: [ :each | each value ].
+]
+
+{ #category : #accessing }
+TemperatureConverter >> times [
+	"comment stating purpose of instance-side method"
+	"scope: class-variables  &  instance-variables"	
+			
+	^ measures collect: [ :each | each key asTime  ]
 ]
