@@ -78,3 +78,23 @@ MFFile >> parent: anObject [
 
 	parent := anObject
 ]
+
+{ #category : #printing }
+MFFile >> printOn: aStream [
+	"comment stating purpose of instance-side method"
+	"scope: class-variables  &  instance-variables"	
+			
+	parent ifNotNil: [ parent printOn:  aStream ] .
+	aStream << name.
+]
+
+{ #category : #'typing/selecting keys' }
+MFFile >> search: aString [
+	
+	^ '*', aString, '*' match: contents 
+]
+
+{ #category : #accessing }
+MFFile >> size [
+	^ contents size + name size.
+]

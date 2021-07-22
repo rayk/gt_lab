@@ -85,3 +85,21 @@ MFDirectory >> printOn: aStream [
 	aStream << name.
 	aStream << '/'
 ]
+
+{ #category : #'typing/selecting keys' }
+MFDirectory >> search: aString [
+	
+	^  files select: [  :eachFile | eachFile serach: aString  ].
+]
+
+{ #category : #accessing }
+MFDirectory >> size [
+
+	| tot |
+	tot := 0.
+
+	files do: [ :each | tot := tot + each size ].
+	tot :=  tot + name size.
+	tot := tot + 2.
+	^ tot 
+]
