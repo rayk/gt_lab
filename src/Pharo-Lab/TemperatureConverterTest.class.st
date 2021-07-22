@@ -43,7 +43,7 @@ TemperatureConverterTest >> testLocationAndDate [
 	"comment stating purpose of instance-side method"
 	"scope: class-variables  &  instance-variables"	
 			
-	| office |
+	| office home|
 	office := TemperatureConverter  new location: 'Office'.
 	office measureCelsius: 19.
 	office measureCelsius: 21.
@@ -54,5 +54,5 @@ TemperatureConverterTest >> testLocationAndDate [
 	
 	self assert: office  temperatures equals:  { 19 . 21 } asOrderedCollection .
 	
-	
+	home  := TemperatureConverter  new location: 'Home'	
 ]
